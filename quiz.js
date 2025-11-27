@@ -63,6 +63,7 @@ const kvizKerdes = [
 
 ]
 var szam = 1;
+var pont = 0;
 function kotkezo() {
     if (szam < kvizKerdes.length) {
 
@@ -76,9 +77,25 @@ function kotkezo() {
         szam++;
         document.getElementById("hanyadik").innerText = szam + "/10"
     
-        // Ellenorzés
-    
+        // Ellenorzes
+        
+        let tbody = document.getElementById("bodyt");
+        let tr = document.createElement("tr")
+        let td = document.createElement("td")
+
+        let doboz = document.getElementsByTagName("input")
+
+        if(doboz[kvizKerdes[szam-2].correct].checked){
+            pont++;
+
     }
+
+        // Tablazat
+
+
+
+
+}
 }
 document.getElementById("kerdes1").innerText = kvizKerdes[0].answer[0];
 document.getElementById("kerdes2").innerText = kvizKerdes[0].answer[1];
