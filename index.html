@@ -13,25 +13,32 @@
 </head>
 <body>
     <header><h1 class="text-center mt-3">Quiz játékok</h1></header>
-    <main class="container bg-dark text-white">
+    <main class="container shadow bg-dark text-white border border-5 border-secondary">
         <section class="row">
             <!-- Kvíz -->
             <form class="text-center" action="">
-                <legend>sigaidsandasndoasnfasnaosfasbnfoansonaFAON</legend>
+                <legend id="kerdesfo">sigaidsandasndoasnfasnaosfasbnfoansonaFAON</legend>
                 <fieldset>
                     <div class="col-12">
-                        <label for="">Válasz1</label>
-                        <input type="radio">
+                        <label id="kerdes1" for="">Válasz1</label>
+                        <input id="valasz1" name="valasz" type="radio">
                     </div>
                     <div class="col-12">
-                        <label for="">Válasz1</label>
-                        <input type="radio">
+                        <label id="kerdes2" for="">Válasz1</label>
+                        <input iid="valasz2" name="valasz" type="radio">
                     </div>
                      <div class="col-12">
-                        <label for="">Válasz1</label>
-                        <input type="radio">
+                        <label id="kerdes3" for="">Válasz1</label>
+                        <input id="valasz3" name="valasz" type="radio">
+                    </div>
+                    <div class="col-12">
+                        <label id="kerdes4" for="">Válasz1</label>
+                        <input id="valasz4" name="valasz" type="radio">
                     </div>
                 </fieldset>
+
+                <input onclick="kotkezo()" class="btn btn-primary float-end me-4 mt-3" value="Következő" type="button">
+            
             </form>
         </section>
         <section class="row">

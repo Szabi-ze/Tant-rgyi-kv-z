@@ -59,4 +59,13 @@ const kvizKerdes = [
         answer: ["Ókori Athén","Középkori Prága","Római Birodalom","Amerikai vadnyugat"],
         correct: 3
     },
+
+
 ]
+
+function kotkezo() {
+    for (let index = 0; index < kvizKerdes.length; index++) {
+        document.getElementById("kerdesfo").innerText = kvizKerdes[index].question
+        
+    }
+}
