@@ -16,6 +16,7 @@
     margin: 8px 0;
     border-radius: 6px;
     font-size: 18px;
+    transition: background 0.2s, transform 0.15s;
 }
 
 .valaszok label {
@@ -28,9 +29,7 @@
     height: 20px;
     cursor: pointer;
 }
-.valaszok {
-    transition: background 0.2s, transform 0.15s;
-}
+
 
 .valaszok:hover {
     background: #3a3a3a;

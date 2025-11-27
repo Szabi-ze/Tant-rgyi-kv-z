@@ -67,9 +67,9 @@ const kvizKerdes = [
 var szam = 1;
 var pont = 0;
 console.log(kvizKerdes.length)
-function kotkezo() {
+function kovetkezo() {
     // Ellenorzes 
-    let doboz = document.getElementsByTagName("input")
+    let doboz = document.querySelectorAll("input[type='radio']")
     let tbody = document.getElementById("bodyt");
     let tr = document.createElement("tr")
     let td1 = document.createElement("td")
@@ -78,7 +78,7 @@ function kotkezo() {
     
     let bepipalt = 0
 
-    for (let index = 0; index < doboz.length-1; index++) {
+    for (let index = 0; index < doboz.length; index++) {
         if (doboz[index].checked){
             bepipalt = index+1
         }
