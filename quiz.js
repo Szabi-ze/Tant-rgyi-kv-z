@@ -62,10 +62,30 @@ const kvizKerdes = [
 
 
 ]
-
+var szam = 1;
 function kotkezo() {
-    for (let index = 0; index < kvizKerdes.length; index++) {
-        document.getElementById("kerdesfo").innerText = kvizKerdes[index].question
+    if (szam < kvizKerdes.length) {
+
+        document.getElementById("kerdesfo").innerText = kvizKerdes[szam].question;
+
+        document.getElementById("kerdes1").innerText = kvizKerdes[szam].answer[0];
+        document.getElementById("kerdes2").innerText = kvizKerdes[szam].answer[1];
+        document.getElementById("kerdes3").innerText = kvizKerdes[szam].answer[2];
+        document.getElementById("kerdes4").innerText = kvizKerdes[szam].answer[3];
         
+        szam++;
+        document.getElementById("hanyadik").innerText = szam + "/10"
+    
+        // Ellenorzés
+    
     }
 }
+document.getElementById("kerdes1").innerText = kvizKerdes[0].answer[0];
+document.getElementById("kerdes2").innerText = kvizKerdes[0].answer[1];
+document.getElementById("kerdes3").innerText = kvizKerdes[0].answer[2];
+document.getElementById("kerdes4").innerText = kvizKerdes[0].answer[3];       
+document.getElementById("kerdesfo").innerText = kvizKerdes[0].question;
+
+
+
+
