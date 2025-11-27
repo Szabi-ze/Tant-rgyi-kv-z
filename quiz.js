@@ -74,22 +74,45 @@ function kotkezo() {
         document.getElementById("kerdes3").innerText = kvizKerdes[szam].answer[2];
         document.getElementById("kerdes4").innerText = kvizKerdes[szam].answer[3];
         
+        
+
         szam++;
         document.getElementById("hanyadik").innerText = szam + "/10"
     
         // Ellenorzes
         
-        let tbody = document.getElementById("bodyt");
-        let tr = document.createElement("tr")
-        let td = document.createElement("td")
+        
 
         let doboz = document.getElementsByTagName("input")
+        let tbody = document.getElementById("bodyt");
+        let tr = document.createElement("tr")
+        let td1 = document.createElement("td")
+        let td2 = document.createElement("td")
+        let td3 = document.createElement("td")
+        
+        let bepipalt = 0
+
+        for (let index = 0; index < doboz.length-1; index++) {
+            if (doboz[index].checked){
+                bepipalt = index+1
+        }
+        }
+        
 
         if(doboz[kvizKerdes[szam-2].correct].checked){
             pont++;
-
-    }
-
+            td1.innerText = kvizKerdes[szam-2].question
+            td2.innerText = "Helyes válasz"
+            td3.innerText = kvizKerdes[szam-2].answer[bepipalt-1]
+        } else{
+            td1.innerText = kvizKerdes[szam-2].question
+            td2.innerText = "Helytelen válasz"
+            td3.innerText = kvizKerdes[szam-2].answer[bepipalt-1    ]
+        }
+        tr.append(td1)
+        tr.append(td3)
+        tr.append(td2)
+        tbody.append(tr)
         // Tablazat
 
 

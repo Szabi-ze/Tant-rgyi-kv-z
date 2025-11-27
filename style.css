@@ -28,5 +28,21 @@
     height: 20px;
     cursor: pointer;
 }
+.valaszok {
+    transition: background 0.2s, transform 0.15s;
+}
 
-
+.valaszok:hover {
+    background: #3a3a3a;
+    transform: scale(1.01);
+}
+main {
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.35);
+    margin: 40px auto;
+    max-width: 900px;
+}
+body{
+    background-color: #2b2b2b;
+}
