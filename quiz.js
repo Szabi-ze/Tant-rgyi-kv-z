@@ -59,6 +59,7 @@ const kvizKerdes = [
         answer: ["1","0","√3","-1"],
         correct: 0
     },
+    
 
 
 
@@ -127,7 +128,7 @@ function kotkezo() {
         document.getElementById("kerdes4").innerText = kvizKerdes[szam].answer[3];
         
         szam++;
-        document.getElementById("hanyadik").innerText = szam + "/10"
+        document.getElementById("hanyadik").innerText = szam + "/10 " + "feladat"
     } else{
         document.getElementById("gomb").setAttribute("value", "Eredmények")
         document.getElementById("gomb").setAttribute("onclick", "eredmeny()")
@@ -143,5 +144,6 @@ document.getElementById("kerdesfo").innerText = kvizKerdes[0].question;
 
 
 function eredmeny() {
-    alert(pont)
+    document.getElementById("pontszam").innerText = "Elért pontszám: " + pont + "/10"
+    document.getElementById("pontszam").style.fontWeight = "bold"
 }
