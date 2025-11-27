@@ -49,7 +49,7 @@ const kvizKerdes = [
     },
     {
         subject: "Magyar nyelv",
-        question: "Melyik szereplő mondja a híres gondolatot: „Mondottam, ember: küzdj és bízva bízzál!”?",
+        question: "Ki mondja: „Mondottam, ember: küzdj és bízva bízzál!”?",
         answer: ["Ádám","Éva","Lucifer","Az Úr"],
         correct: 3
     },
@@ -65,9 +65,60 @@ const kvizKerdes = [
 ]
 var szam = 1;
 var pont = 0;
+console.log(kvizKerdes.length)
 function kotkezo() {
-    if (szam < kvizKerdes.length) {
+    // Ellenorzes 
+    let doboz = document.getElementsByTagName("input")
+    let tbody = document.getElementById("bodyt");
+    let tr = document.createElement("tr")
+    let td1 = document.createElement("td")
+    let td2 = document.createElement("td")
+    let td3 = document.createElement("td")
+    
+    let bepipalt = 0
 
+    for (let index = 0; index < doboz.length-1; index++) {
+        if (doboz[index].checked){
+            bepipalt = index+1
+        }
+    }
+    
+
+    if(doboz[kvizKerdes[szam-1].correct].checked){
+        pont++;
+        td1.innerText = kvizKerdes[szam-1].question
+        td2.innerText = "Helyes válasz"
+        td3.innerText = kvizKerdes[szam-1].answer[bepipalt-1]
+    } else{
+        td1.innerText = kvizKerdes[szam-1].question
+        td2.innerText = "Helytelen válasz"
+        td3.innerText = kvizKerdes[szam-1].answer[bepipalt-1]
+        if(kvizKerdes[szam-1].answer[bepipalt-1] == undefined){
+            td3.innerText = "Nem adott meg választ"
+        }
+    }
+
+    if(kvizKerdes[szam-1].subject == "Matematika"){
+        tr.className = "matek"
+    } else if(kvizKerdes[szam-1].subject == "Magyar nyelv"){
+        tr.className = "magyar"
+    } else {
+        tr.className = "tori"
+    }
+
+    tr.append(td1)
+    tr.append(td3)
+    tr.append(td2)
+    tbody.append(tr)
+
+
+    document.getElementById("valasz1").checked = false
+    document.getElementById("valasz2").checked = false
+    document.getElementById("valasz3").checked = false
+    document.getElementById("valasz4").checked = false
+
+ 
+    if (szam < kvizKerdes.length) {
         document.getElementById("kerdesfo").innerText = kvizKerdes[szam].question;
 
         document.getElementById("kerdes1").innerText = kvizKerdes[szam].answer[0];
@@ -75,70 +126,12 @@ function kotkezo() {
         document.getElementById("kerdes3").innerText = kvizKerdes[szam].answer[2];
         document.getElementById("kerdes4").innerText = kvizKerdes[szam].answer[3];
         
-
-
-
         szam++;
         document.getElementById("hanyadik").innerText = szam + "/10"
-    
-        // Ellenorzes
-        
-        
-
-        let doboz = document.getElementsByTagName("input")
-        let tbody = document.getElementById("bodyt");
-        let tr = document.createElement("tr")
-        let td1 = document.createElement("td")
-        let td2 = document.createElement("td")
-        let td3 = document.createElement("td")
-        
-        let bepipalt = 0
-
-        for (let index = 0; index < doboz.length-1; index++) {
-            if (doboz[index].checked){
-                bepipalt = index+1
-        }
-        }
-        
-
-        if(doboz[kvizKerdes[szam-2].correct].checked){
-            pont++;
-            td1.innerText = kvizKerdes[szam-2].question
-            td2.innerText = "Helyes válasz"
-            td3.innerText = kvizKerdes[szam-2].answer[bepipalt-1]
-        } else{
-            td1.innerText = kvizKerdes[szam-2].question
-            td2.innerText = "Helytelen válasz"
-            td3.innerText = kvizKerdes[szam-2].answer[bepipalt-1]
-            if(kvizKerdes[szam-2].answer[bepipalt-1] == undefined){
-                td3.innerText = "Nem adott meg választ"
-            }
-        }
-
-        if(kvizKerdes[szam-2].subject == "Matematika"){
-            tr.className = "matek"
-        } else if(kvizKerdes[szam-2].subject == "Magyar nyelv"){
-            tr.className = "magyar"
-        } else {
-            tr.className = "tori"
-        }
-
-        tr.append(td1)
-        tr.append(td3)
-        tr.append(td2)
-        tbody.append(tr)
-       
-
-        if (szam == 11){
-            alert("sizm")
-        }
-
-        document.getElementById("valasz1").checked = false
-        document.getElementById("valasz2").checked = false
-        document.getElementById("valasz3").checked = false
-        document.getElementById("valasz4").checked = false
-
-}
+    } else{
+        document.getElementById("gomb").setAttribute("value", "Eredmények")
+        document.getElementById("gomb").setAttribute("onclick", "eredmeny()")
+    }
 }
 document.getElementById("kerdes1").innerText = kvizKerdes[0].answer[0];
 document.getElementById("kerdes2").innerText = kvizKerdes[0].answer[1];
@@ -149,3 +142,6 @@ document.getElementById("kerdesfo").innerText = kvizKerdes[0].question;
 
 
 
+function eredmeny() {
+    alert(pont)
+}
